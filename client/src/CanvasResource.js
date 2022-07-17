@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import OpenSeadragon from 'openseadragon-fabricjs-overlay/openseadragon/openseadragon';
 import { fabric } from 'openseadragon-fabricjs-overlay/fabric/fabric.adapted';
-import { openSeaDragonFabricOverlay } from 'openseadragon-fabricjs-overlay/openseadragon-fabricjs-overlay';
+// import openSeaDragonFabricOverlay from 'openseadragon-fabricjs-overlay/openseadragon-fabricjs-overlay';
 import Slider from 'material-ui/Slider';
 import IconButton from 'material-ui/IconButton';
 import PanTool from 'material-ui/svg-icons/action/pan-tool';
@@ -45,6 +45,11 @@ import HighlightColorSelect from './HighlightColorSelect';
 import AddImageLayer from './AddImageLayer';
 import TextField from 'material-ui/TextField';
 import deepEqual from 'deep-equal';
+const openSeaDragonFabricOverlay = () => require('openseadragon-fabricjs-overlay/openseadragon-fabricjs-overlay')
+window.OpenSeadragon = OpenSeadragon
+console.log(OpenSeadragon)
+console.log(openSeaDragonFabricOverlay)
+openSeaDragonFabricOverlay()
 
 // overlay these modules
 openSeaDragonFabricOverlay(OpenSeadragon, fabric);
