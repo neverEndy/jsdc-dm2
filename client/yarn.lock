@@ -6305,11 +6305,13 @@ open@^6.3.0:
   dependencies:
     is-wsl "^1.1.0"
 
-"openseadragon-fabricjs-overlay@git://github.com/performant-software/OpenseadragonFabricjsOverlay.git":
+"openseadragon-fabricjs-overlay@https://github.com/altert/OpenseadragonFabricjsOverlay.git":
   version "0.2.0"
-  resolved "git://github.com/performant-software/OpenseadragonFabricjsOverlay.git#578d9cbbe7850e101f65e7e99c18e481a470a8dd"
+  resolved "https://github.com/altert/OpenseadragonFabricjsOverlay.git#fca333da34ba365eca06f9652143f3c80d823277"
+  dependencies:
+    openseadragon "^2.0.0"
 
-openseadragon@^2.4.2:
+openseadragon@^2.0.0, openseadragon@^2.4.2:
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/openseadragon/-/openseadragon-2.4.2.tgz#f25d833d0ab9941599d65a3e2b44bec546c9f15c"
 

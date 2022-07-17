@@ -1,4 +1,4 @@
-version: "3.9"
+version: "3.3"
 services:
   redis_db:
     image: redis:6-alpine
@@ -16,6 +16,8 @@ services:
     command: postgres -c listen_addresses='*'
     volumes:
       - ./tmp/dev-db:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
   app:
     build: .
     command: bash -c "rm -f tmp/pids/server.pid && cd /opt/app && bundle exec foreman start -f Procfile.dev"
