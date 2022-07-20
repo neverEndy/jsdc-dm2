@@ -270,7 +270,7 @@ class CanvasResource extends Component {
       this.markObjectsDirtyNextUpdate = false;
       overlay.fabricCanvas().freeDrawingBrush.width = strokeWidth / overlay.fabricCanvas().getZoom();
       overlay.resize();
-      overlay.resizecanvas();
+      overlay.resizeCanvas();
     });
 
     viewer.addHandler('page', (event) => {
@@ -380,7 +380,7 @@ class CanvasResource extends Component {
     // handle window resize
     window.onresize = function() {
       overlay.resize();
-      overlay.resizecanvas();
+      overlay.resizeCanvas();
     };
   }
 
@@ -1165,7 +1165,16 @@ class CanvasResource extends Component {
         <div style={{ display: (mode || !globalCanvasDisplay) ? 'none' : 'flex', flexDirection: 'column', width: '100%' }}>
           {editable &&
             <div style={{ display: 'flex' }}>
-              <HighlightColorSelect
+              <input type='color'
+              value={highlightColors[key]} 
+              onChange={e => {
+                const color = e.target.value
+                setCanvasHighlightColor(key, color);
+                  if (this.overlay) {
+                    this.overlay.fabricCanvas().freeDrawingBrush.color = color;
+                  }
+              }} />
+              {/* <HighlightColorSelect
                 highlightColor={highlightColors[key]}
                 displayColorPicker={displayColorPickers[key]}
                 setHighlightColor={(color) => {
@@ -1175,7 +1184,7 @@ class CanvasResource extends Component {
                   }
                 }}
                 toggleColorPicker={() => {toggleCanvasColorPicker(key);}}
-              />
+              /> */}
               <IconButton
                 tooltip="Open highlight and navigate image"
                 onClick={this.panClick.bind(this)}
